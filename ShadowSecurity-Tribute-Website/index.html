@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<!-- pages-campaign site for Epsilon0xCell/ShadowSecurity-Tribute; source of truth: ShadowSecurity-Tribute-Website/ on the default branch -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ShadowSecurity-Tribute - a tribute, kept honest</title>
+<style>
+  /* I chose warm paper and a single narrow column for this one. It is a memorial page for work that ended, and I did not want it to look like a product launch. The space between sections is part of that choice. */
+  * { box-sizing: border-box; }
+  body { margin: 0; background: #efe7d8; color: #2e2a24; font-family: "Iowan Old Style", Palatino, Georgia, serif; line-height: 1.7; }
+  .sheet { max-width: 680px; margin: 0 auto; padding: 48px 24px 56px; }
+  .kicker { text-align: center; font-size: 12px; letter-spacing: .22em; text-transform: uppercase; color: #7a6a52; margin: 0 0 14px; }
+  h1 { text-align: center; font-size: 36px; line-height: 1.15; margin: 0 0 12px; font-weight: 600; }
+  .oneline { text-align: center; font-style: italic; color: #4a4234; margin: 0 auto 28px; max-width: 540px; }
+  .hero img { width: 100%; height: auto; display: block; border: 1px solid #c9b998; }
+  .hero figcaption { font-size: 13px; color: #7a6a52; text-align: center; margin-top: 8px; }
+  .badges { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; margin: 22px 0 6px; }
+  .badges img { height: 20px; }
+  h2 { font-size: 20px; margin: 40px 0 10px; font-weight: 600; border-bottom: 1px solid #c9b998; padding-bottom: 6px; }
+  .circle { width: 150px; height: auto; display: block; margin: 26px auto 4px; }
+  .honest { background: #f7f1e3; border: 1px solid #a68d5f; padding: 18px 20px; margin: 22px 0; }
+  .honest p:first-child { margin-top: 0; }
+  .honest p:last-child { margin-bottom: 0; }
+  code { font-family: ui-monospace, Menlo, monospace; font-size: .92em; background: #e6dcc4; padding: 1px 5px; }
+  .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  @media (max-width: 560px) { .pair { grid-template-columns: 1fr; } }
+  .pair figure { margin: 0; }
+  .pair img { width: 100%; height: auto; display: block; border: 1px solid #c9b998; background: #fff; }
+  .pair figcaption { font-size: 13px; color: #7a6a52; margin-top: 6px; }
+  .chips { list-style: none; padding: 0; display: flex; gap: 8px; flex-wrap: wrap; }
+  .chips li { border: 1px solid #a68d5f; padding: 2px 10px; font-size: 13px; font-family: ui-monospace, Menlo, monospace; }
+  a { color: #6b4e1f; }
+  footer { margin-top: 52px; padding-top: 14px; border-top: 1px solid #c9b998; text-align: center; font-size: 13px; color: #7a6a52; }
+</style>
+</head>
+<body>
+<main class="sheet">
+  <p class="kicker">In memory of a project that ended</p>
+  <h1>ShadowSecurity-Tribute</h1>
+  <p class="oneline">ShadowSecurity was an organization founded by me later shutdown after one year, this is a tribute.</p>
+
+  <figure class="hero">
+    <img src="https://raw.githubusercontent.com/Epsilon0xCell/ShadowSecurity-Tribute/main/ShadowSecurityBackground.png" alt="ShadowSecurity background art from this repo">
+    <figcaption>ShadowSecurityBackground.png, from this repo. It is the image my README opens with.</figcaption>
+  </figure>
+
+  <div class="badges">
+    <img src="https://img.shields.io/github/stars/Epsilon0xCell/ShadowSecurity-Tribute" alt="Stars">
+    <img src="https://img.shields.io/github/forks/Epsilon0xCell/ShadowSecurity-Tribute" alt="Forks">
+    <img src="https://img.shields.io/github/last-commit/Epsilon0xCell/ShadowSecurity-Tribute" alt="Last commit">
+    <img src="https://img.shields.io/github/languages/top/Epsilon0xCell/ShadowSecurity-Tribute" alt="Top language">
+    <img src="https://img.shields.io/github/repo-size/Epsilon0xCell/ShadowSecurity-Tribute" alt="Repo size">
+    <img src="https://img.shields.io/github/license/Epsilon0xCell/ShadowSecurity-Tribute" alt="License">
+  </div>
+
+  <img class="circle" src="https://raw.githubusercontent.com/Epsilon0xCell/ShadowSecurity-Tribute/main/ShadowSecurity-Circle.png" alt="ShadowSecurity circle mark from this repo">
+
+  <h2>What this is</h2>
+  <p>I founded ShadowSecurity to build security tools and software that would help people protect themselves. I shut it down after about a year. I had taken on too many projects at once, and my own ambition got the better of me. This repo is the tribute I kept for it.</p>
+  <p>The README tells the rise and fall plainly, and I kept that wording as the record here. Shadow-Live, Shadow-Windows, Shadow-Mac, Shadow-Website, Shadow-Music, and the community projects around them all ended for different reasons: too little change from the thing they forked, copyright concerns, lost code, or simply no time. The lesson I wrote down at the end was to focus on one core product.</p>
+  <p>That core product was Shadow-Linux, the flagship idea: my favourite penetration testing GNU/Linux systems installed in one operating system, built on Bedrock Linux. This repo also carries a short tribute to KidsWhoHack, an organization I founded to teach cybersecurity to kids and later closed when I decided text based content served learners better.</p>
+
+  <h2>The honest centre of this repo</h2>
+  <!-- I put the placeholder files in the middle of this page, not in a footnote, because hiding them would turn a tribute into an advert. They are the truest thing in the repo right now. -->
+  <div class="honest">
+    <p><code>Shadow-Linux.sh</code> and <code>Shadow-Mac.sh</code> are placeholders. I have not written those scripts. Each file says so in its own header, in plain words, and running one does nothing.</p>
+    <p>There is no earlier version to restore. The original organization code was deleted with the organization, and my README documents the restore attempt and why it failed: the menu that starts a restore is inside the deleted organization, so I cannot reach it. I will not invent an installer and pretend it is the lost work.</p>
+    <p>What the README says they are meant to become, when and if I write them, is this: Shadow-Linux will essentially become one giant regex script, and Shadow-Mac will set up a Mac with penetration testing tools and a configured out of box experience, as a script and not a custom OS. Until then, the files stay empty on purpose.</p>
+  </div>
+
+  <h2>What the README records</h2>
+  <p>Shadow-Linux was kept when the rest closed, because it was the founding idea. Shadow-Mac was shut down over copyright concerns before any script was released, and may return only as a script. Shadow-Website and Shadow-Music survive in my screenshots and videos, not in code I still have. I note those facts here because a tribute that only lists wins would not be a tribute I trust.</p>
+  <ul class="chips"><li>Shell</li><li>Bash</li></ul>
+
+  <h2>Images kept in this repo</h2>
+  <div class="pair">
+    <figure>
+      <img src="https://raw.githubusercontent.com/Epsilon0xCell/ShadowSecurity-Tribute/main/ShadowSecurity.png" alt="ShadowSecurity art from this repo">
+      <figcaption>ShadowSecurity.png, kept in the repo.</figcaption>
+    </figure>
+    <figure>
+      <img src="https://raw.githubusercontent.com/Epsilon0xCell/ShadowSecurity-Tribute/main/kidswhohacklogo.png" alt="KidsWhoHack logo from this repo">
+      <figcaption>kidswhohacklogo.png, the KidsWhoHack mark from the second tribute in my README.</figcaption>
+    </figure>
+  </div>
+  <p>The repo also holds <code>ShadowSecurity-Matrix.gif</code> and <code>Shadow-Web-PWA-Icon-Image.jpeg</code>. I left them in the repo and off this page, because the page is already carrying the images the README itself uses.</p>
+
+  <h2>Use</h2>
+  <p>There is no install command to copy here, and I will not write one for scripts that do not exist yet. Reading the repo is the use: start with <code>README.md</code>, then the two placeholder headers, which state what each file is and why it is empty.</p>
+  <p><a href="https://github.com/Epsilon0xCell/ShadowSecurity-Tribute">Read ShadowSecurity-Tribute on GitHub</a> &middot; <a href="https://github.com/Epsilon0xCell">Epsilon0xCell on GitHub</a></p>
+
+  <footer>Built by Epsilon0xCell<br>Kept as a record, not rebuilt as a claim.</footer>
+</main>
+</body>
+</html>

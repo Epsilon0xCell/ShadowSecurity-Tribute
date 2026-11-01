@@ -1,271 +1,56 @@
 <!DOCTYPE html>
-<!-- pages-campaign site for Epsilon0xCell/ShadowSecurity-Tribute; source of truth: ShadowSecurity-Tribute-Website/ on the default branch -->
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>ShadowSecurity-Tribute: The Memorial Wall</title>
+<title>ShadowSecurity-Tribute: The Meter Cupboard Under the Stairs</title>
+<meta name="description" content="A memorial to ShadowSecurity, the organisation the author founded and closed after about a year, kept on the meter board under the stairs: Shadow-Linux first, then every smaller project with the reason it ended.">
 <style>
-  /* I built this page as a memorial wall because that is what the repo is. Dark slate, names cut in as rows, and one warm colour used the way candlelight is used: in one or two places, not spread over everything. */
-  * { box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
-  body { margin: 0; background: #17191c; color: #d8d2c4; font-family: Georgia, "Times New Roman", Times, serif; line-height: 1.75; }
-  .wall { max-width: 1080px; margin: 0 auto; padding: 56px 28px 64px; }
-  a { color: #d9a441; }
-  .plaque { border: 1px solid #3d434a; background: #1f2328; box-shadow: inset 0 0 0 1px #101214, inset 0 2px 18px rgba(0,0,0,.55); padding: 44px 46px 38px; display: grid; grid-template-columns: 1fr 168px; gap: 36px; align-items: start; }
-  @media (max-width: 720px) { .plaque { grid-template-columns: 1fr; padding: 32px 24px; } }
-  .kicker { font-size: 12px; letter-spacing: .3em; text-transform: uppercase; color: #9a917e; margin: 0 0 18px; }
-  /* I set the name large and left aligned, like a line cut into stone. Centering it would have made it a poster. */
-  h1 { font-size: 52px; line-height: 1.08; margin: 0 0 16px; font-weight: 600; color: #ece6d6; letter-spacing: .01em; }
-  @media (max-width: 720px) { h1 { font-size: 36px; } }
-  .inscription { font-style: italic; font-size: 19px; color: #bdb49e; margin: 0 0 20px; max-width: 620px; }
-  .flame-line { display: flex; align-items: center; gap: 12px; color: #9a917e; font-size: 13px; letter-spacing: .14em; text-transform: uppercase; margin: 26px 0 0; }
-  /* The one moving light on the page. It sits beside the founding line and nowhere else. */
-  .flame { width: 8px; height: 8px; border-radius: 50%; background: #d9a441; box-shadow: 0 0 14px 3px rgba(217,164,65,.55); animation: glow 6s ease-in-out infinite; flex: none; }
-  @keyframes glow { 0%, 100% { opacity: .65; } 50% { opacity: 1; } }
-  .plaque-logo { width: 168px; height: auto; display: block; border: 1px solid #3d434a; }
-  .plaque figcaption, figcaption { font-size: 13px; color: #8f8875; margin-top: 8px; line-height: 1.5; }
-  figure { margin: 0; }
-  .badges { display: flex; flex-wrap: wrap; gap: 6px; margin: 24px 0 0; }
-  .badges img { height: 20px; }
-  .banner { margin-top: 28px; }
-  .banner img { width: 100%; height: auto; display: block; border: 1px solid #3d434a; }
-  h2 { font-size: 24px; font-weight: 600; color: #ece6d6; margin: 64px 0 6px; }
-  .rule { width: 64px; height: 2px; background: #d9a441; margin: 0 0 22px; }
-  p { max-width: 760px; }
-  /* The names go in ruled rows, name on the left and the record on the right, the way a wall lists them. I did not use cards for this. A wall does not have cards. */
-  .names { border-top: 1px solid #3d434a; margin-top: 8px; }
-  .name-row { display: grid; grid-template-columns: 240px 1fr; gap: 28px; padding: 16px 4px; border-bottom: 1px solid #2c3137; }
-  @media (max-width: 720px) { .name-row { grid-template-columns: 1fr; gap: 2px; } }
-  .name-row .n { color: #ece6d6; font-size: 18px; letter-spacing: .02em; }
-  .name-row .r { color: #b3ab97; }
-  .stone { border: 1px solid #3d434a; background: #1c2024; padding: 28px 30px; margin: 26px 0; box-shadow: inset 0 2px 14px rgba(0,0,0,.45); }
-  .stone p:first-child { margin-top: 0; }
-  .stone p:last-child { margin-bottom: 0; }
-  code { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: .9em; background: #2a2f35; color: #e6ddc6; padding: 1px 5px; }
-  /* I show both placeholder files whole, with their real line numbers, because a trimmed excerpt could hide how empty they are. The numbers are part of the honesty here. */
-  .capture { background: #111417; border: 1px solid #343a41; margin: 20px 0 28px; }
-  .capture .cap-head { padding: 10px 16px; border-bottom: 1px solid #343a41; font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 13px; color: #9a917e; }
-  .capture pre { margin: 0; padding: 16px; overflow-x: auto; font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 13.5px; line-height: 1.65; color: #d8d2c4; }
-  .gallery { display: grid; grid-template-columns: repeat(12, 1fr); gap: 22px; margin-top: 10px; }
-  .gallery figure img { width: 100%; height: auto; display: block; border: 1px solid #3d434a; background: #101214; }
-  .g-wide { grid-column: span 8; } .g-side { grid-column: span 4; } .g-half { grid-column: span 6; } .g-third { grid-column: span 4; }
-  @media (max-width: 720px) { .g-wide, .g-side, .g-half, .g-third { grid-column: span 12; } }
-  /* The drawn sheets sit at uneven widths on purpose. On a wall, no two framed pieces are the same size, and matching widths would flatten them. */
-  .plates { margin-top: 10px; }
-  .plates figure { margin: 0 0 34px; }
-  .plates img { height: auto; display: block; border: 1px solid #3d434a; background: #fff; }
-  .plates .p-a { width: 82%; } .plates .p-b { width: 62%; margin-left: 12%; } .plates .p-c { width: 74%; margin-left: 4%; }
-  @media (max-width: 720px) { .plates .p-a, .plates .p-b, .plates .p-c { width: 100%; margin-left: 0; } }
-  .chips { list-style: none; padding: 0; display: flex; gap: 8px; flex-wrap: wrap; margin: 14px 0 0; }
-  .chips li { border: 1px solid #4a5058; padding: 2px 10px; font-size: 13px; font-family: ui-monospace, Menlo, monospace; color: #bdb49e; }
-  /* Sections rise a few millimetres as they come into view, slowly, in reading order. Anything faster would fight the subject of this page. */
-  .reveal { transition: opacity .9s ease, transform .9s ease; }
-  .js .reveal { opacity: 0; transform: translateY(10px); }
-  .js .reveal.seen { opacity: 1; transform: none; }
-  footer { margin-top: 72px; padding-top: 18px; border-top: 1px solid #3d434a; font-size: 13px; color: #8f8875; display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
-  @media (prefers-reduced-motion: reduce) {
-    html { scroll-behavior: auto; }
-    .flame { animation: none; opacity: 1; }
-    .reveal { transition: none; }
-    .js .reveal { opacity: 1; transform: none; }
-  }
+@font-face{font-family:'Anek Tamil';src:url('fonts/AnekTamil.ttf') format('truetype');}
+@font-face{font-family:'Archivo';src:url('fonts/Archivo.ttf') format('truetype');}
+:root{--soot:#17140f;--cream:#f0e6c8;--paper:#f7f1dc;--amber:#c8741a;--amberlt:#e8a43e}
+*{box-sizing:border-box} body{margin:0;background:var(--soot);color:#111;font-family:'Archivo',sans-serif;line-height:1.65}
+h1,h2{font-family:'Anek Tamil',sans-serif}
+.hero{max-width:1060px;margin:0 auto;padding:2rem 5vw 0}.hero img.cup{width:100%;height:auto;display:block}
+.hero .strip{display:flex;gap:1.2rem;align-items:flex-start;margin-top:1.2rem}.hero .strip img{width:96px;height:96px}
+.hero h1{color:var(--cream);margin:.2rem 0 .4rem;font-size:2rem}.hero p{color:#d8cfb4;max-width:46rem}
+.board{max-width:1060px;margin:1.6rem auto 3rem;padding:2rem 5vw;background:var(--cream);position:relative}
+.board:before{content:'';position:absolute;left:26px;top:0;bottom:0;width:3px;background:var(--soot)}
+.row{position:relative;background:var(--paper);border:1.5px solid var(--soot);padding:1.1rem 1.3rem 1.1rem 2.6rem;margin:0 0 1.3rem 1.4rem}
+.row:before{content:'';position:absolute;left:-1.4rem;top:2rem;width:1.4rem;height:3px;background:var(--soot)}
+.row .dial{position:absolute;left:.8rem;top:1rem;width:26px;height:26px;border:3px solid var(--soot);border-radius:50%;background:var(--cream)}
+.row .dial:after{content:'';position:absolute;left:11px;top:3px;width:3px;height:9px;background:var(--amber);transform:rotate(38deg);transform-origin:bottom}
+.row .screw{position:absolute;top:8px;width:9px;height:9px;border-radius:50%;background:#b7ab8c;border:1.5px solid var(--soot)}
+.row .screw.l{left:8px}.row .screw.r{right:8px}
+.row h2{margin:.1rem 0 .5rem;font-size:1.35rem}.row p{margin:.4rem 0}
+.room{font-family:'Archivo',sans-serif;text-transform:uppercase;letter-spacing:.14em;font-size:.72rem;color:var(--amber);display:block}
+.btn{display:inline-block;background:var(--cream);color:#111;font-family:'Anek Tamil',sans-serif;text-decoration:none;padding:.5rem 1rem;border:2px solid var(--soot);border-bottom:5px solid var(--amber);margin:.3rem .4rem .3rem 0}
+.btn:hover{transform:translateY(-2px)}.btn:active{transform:translateY(1px);border-bottom-color:var(--soot)}
+.btn:focus-visible{outline:2px solid var(--amber);outline-offset:3px}
+a{color:#7a4a08;text-decoration:none}
+a .pin{display:inline-block;width:.55em;height:.55em;border:2px solid var(--soot);border-radius:50%;margin-right:.35em}
+a:hover{text-decoration:underline}a:hover .pin{background:var(--amber)}
+.needle{display:inline-block;width:120px;height:10px;background:var(--soot);position:relative;vertical-align:middle;margin-left:.6rem}
+.needle i{position:absolute;left:8px;top:3px;width:44px;height:4px;background:var(--amber);transform-origin:left;animation:tick 6s steps(1) infinite}
+@keyframes tick{0%{transform:rotate(-24deg)}50%{transform:rotate(-9deg)}100%{transform:rotate(-24deg)}}
+.note{background:var(--cream);border:1.5px solid var(--soot);padding:.8rem 1rem;max-width:38rem;position:relative}
+.note:before{content:'';position:absolute;top:-7px;left:50%;width:13px;height:13px;border-radius:50%;background:var(--amberlt);border:1.5px solid var(--soot)}
+footer{max-width:1060px;margin:0 auto;padding:0 5vw 2.5rem;color:#b7ab8c}
+code{background:#e7dcbc;padding:.05rem .3rem}
 </style>
 </head>
 <body>
-<main class="wall">
-
-  <section class="plaque">
-    <div>
-      <p class="kicker">A tribute, kept as a record</p>
-      <h1>ShadowSecurity</h1>
-      <p class="inscription">&ldquo;ShadowSecurity was an organization founded by me later shutdown after one year, this is a tribute.&rdquo; That is the first line of my README, and I set it here the way it is written.</p>
-      <p>I add the line my README adds right after it: only the older version was shut down. What this repo keeps is the record of that older version, its projects, and the one idea I carried forward.</p>
-      <p class="flame-line"><span class="flame" aria-hidden="true"></span> Founded by me. Closed after about a year.</p>
-      <div class="badges">
-        <img src="https://img.shields.io/github/stars/Epsilon0xCell/ShadowSecurity-Tribute" alt="Stars">
-        <img src="https://img.shields.io/github/forks/Epsilon0xCell/ShadowSecurity-Tribute" alt="Forks">
-        <img src="https://img.shields.io/github/last-commit/Epsilon0xCell/ShadowSecurity-Tribute" alt="Last commit">
-        <img src="https://img.shields.io/github/languages/top/Epsilon0xCell/ShadowSecurity-Tribute" alt="Top language">
-        <img src="https://img.shields.io/github/repo-size/Epsilon0xCell/ShadowSecurity-Tribute" alt="Repo size">
-        <img src="https://img.shields.io/github/license/Epsilon0xCell/ShadowSecurity-Tribute" alt="License">
-      </div>
-    </div>
-    <figure>
-      <img class="plaque-logo" src="https://raw.githubusercontent.com/Epsilon0xCell/ShadowSecurity-Tribute/main/logo.png" alt="ShadowSecurity Tribute logo art from this repo">
-      <figcaption>logo.png, the repo logo. It carries the count from the 2026-10-30 snapshot drawn for the Visuals sheets: 10 files, 85 lines, 22 commits.</figcaption>
-    </figure>
-  </section>
-
-  <figure class="banner">
-    <img src="https://raw.githubusercontent.com/Epsilon0xCell/ShadowSecurity-Tribute/main/banner.png" alt="ShadowSecurity Tribute banner art from this repo">
-    <figcaption>banner.png, the wide form of the same repo art, with the same snapshot count on it.</figcaption>
-  </figure>
-
-  <section class="reveal">
-    <h2>What I built, and why it ended</h2>
-    <div class="rule"></div>
-    <p>I founded ShadowSecurity as a non-profit to build security tools and software that would help people protect themselves against cyber threats. I shut it down after about a year. My README says why in plain words: my own ambitious nature, and too many projects to manage at once.</p>
-    <p>The founding idea was Shadow-Linux: my favourite penetration testing GNU/Linux systems installed in one operating system, built on Bedrock Linux rather than forked with branding. That idea came first, before ShadowSecurity branched out, and it is the one thing I kept when the rest closed.</p>
-    <p>The lesson I wrote at the end of the README is the one I still hold: focusing on one core product is the key, and I tried to reinvent the wheel and do too much instead. I would rather this page quote that than soften it.</p>
-  </section>
-
-  <section class="reveal">
-    <h2>The wall of names</h2>
-    <div class="rule"></div>
-    <p>Every project my README names, set down with what the README says became of it. Nothing here is renamed or improved after the fact.</p>
-    <div class="names">
-      <div class="name-row"><span class="n">Shadow-Linux</span><span class="r">The flagship and the founding idea. Kept. Its script in this repo is a placeholder, shown in full below.</span></div>
-      <div class="name-row"><span class="n">Shadow-Live</span><span class="r">A customizable penetration testing distribution with backups, forked from RescueZilla. Closed because there was too little change from RescueZilla to justify keeping it.</span></div>
-      <div class="name-row"><span class="n">Shadow-Windows</span><span class="r">Closed over the copyright problems a project like it would run into.</span></div>
-      <div class="name-row"><span class="n">Shadow-Mac</span><span class="r">Closed for the same copyright reason. It may return as a script, not a custom OS. Its file here is a placeholder, shown in full below.</span></div>
-      <div class="name-row"><span class="n">Shadow-Website</span><span class="r">A community project. I still have screenshots and videos of the PWA in action. The code is lost.</span></div>
-      <div class="name-row"><span class="n">Shadow-Music</span><span class="r">A community project built on SomaFM, forked from someone else&rsquo;s SomaFM online player. I still have videos of it in action. The code was lost when the organization shut down.</span></div>
-      <div class="name-row"><span class="n">Shadow-Game</span><span class="r">Community project. Closed for lack of time.</span></div>
-      <div class="name-row"><span class="n">Shadow-Blog</span><span class="r">Community project. Closed for lack of time.</span></div>
-      <div class="name-row"><span class="n">Shadow-News</span><span class="r">Community project. Closed for lack of time.</span></div>
-      <div class="name-row"><span class="n">Shadow-Community</span><span class="r">Community project. Closed for lack of time.</span></div>
-      <div class="name-row"><span class="n">Shadow-Storage</span><span class="r">Community project. Closed for lack of time.</span></div>
-    </div>
-  </section>
-
-  <section class="reveal">
-    <h2>The honest centre: two files that are not written</h2>
-    <div class="rule"></div>
-    <p>I state this plainly, in the middle of the page, because it is the truest thing in the repo: <code>Shadow-Linux.sh</code> and <code>Shadow-Mac.sh</code> are placeholders. I have not written either script. Each file is only its header comment, and running either one does nothing and prints nothing.</p>
-    <p>There is no earlier code to restore. The original organization was deleted, and my README documents the restore attempt and why it failed: the restore menu sits inside the deleted organization, so I cannot reach it. I will not write a fake installer and call it the lost work.</p>
-
-    <div class="capture">
-      <div class="cap-head">Shadow-Linux.sh, the whole file, 10 lines, at head a8510cc</div>
-      <pre> 1 | #!/bin/bash
- 2 | # Shadow-Linux is not written yet. This file is the placeholder for it.
- 3 | #
- 4 | # The plan, in the README's own terms, is one script that installs the
- 5 | # author's favorite penetration testing distributions into a single
- 6 | # Bedrock Linux based system. The original organization's code was lost
- 7 | # when the organization was deleted (the README documents the failed
- 8 | # restore attempt), so there is no earlier version of this script to put
- 9 | # here. Until the script is actually written, this file stays empty on
-10 | # purpose rather than carrying a stub that pretends to install things.</pre>
-    </div>
-
-    <div class="capture">
-      <div class="cap-head">Shadow-Mac.sh, the whole file, 9 lines, at head a8510cc</div>
-      <pre>1 | #!/bin/bash
-2 | # Shadow-Mac is not written yet. This file is the placeholder for it.
-3 | #
-4 | # The README describes the intent: a script, not a custom OS, that sets up
-5 | # a Mac with penetration testing tools and a configured out-of-box
-6 | # experience. The earlier Shadow-Mac project was shut down over copyright
-7 | # concerns before any script was released, so this file has no predecessor
-8 | # to restore from. It stays an honest placeholder until the setup script
-9 | # is written.</pre>
-    </div>
-
-    <div class="capture">
-      <div class="cap-head">A real run, at head a8510cc. Both files together, in full.</div>
-      <pre>$ bash Shadow-Linux.sh
-$ bash Shadow-Mac.sh
-$ echo "exit: $?"
-exit: 0</pre>
-    </div>
-    <p>That run is the whole behaviour of this repo today: no output, exit 0. What the README says the scripts are meant to become, if I write them, is that Shadow-Linux will essentially become one giant regex script, and Shadow-Mac will set up a Mac with penetration testing tools and a configured out of box experience. Until then they stay empty on purpose.</p>
-    <ul class="chips"><li>Shell</li><li>Bash</li><li>Markdown, the README is the record</li></ul>
-  </section>
-
-  <section class="reveal">
-    <h2>A second name on the wall: KidsWhoHack</h2>
-    <div class="rule"></div>
-    <div class="stone">
-      <p>I founded KidsWhoHack to teach cybersecurity to kids. I built a course for it, then decided I was reinventing the wheel: text based content teaches this as well or better, and presentations and blogs reach more people and are easier to keep up. I shut KidsWhoHack down and kept writing text based content. My README puts its tribute inside this repo, so its name belongs on this wall too, on its own stone.</p>
-    </div>
-  </section>
-
-  <section class="reveal">
-    <h2>Art kept in this repo</h2>
-    <div class="rule"></div>
-    <div class="gallery">
-      <figure class="g-wide">
-        <img src="https://raw.githubusercontent.com/Epsilon0xCell/ShadowSecurity-Tribute/main/ShadowSecurityBackground.png" alt="Green falling code background with the word SHADOWSECURITY across it">
-        <figcaption>ShadowSecurityBackground.png. Green falling code with SHADOWSECURITY in thin white letters. My README opens with this image.</figcaption>
-      </figure>
-      <figure class="g-side">
-        <img src="https://raw.githubusercontent.com/Epsilon0xCell/ShadowSecurity-Tribute/main/ShadowSecurity.png" alt="Green burst art with SHADOWSECURITY stretched across the middle">
-        <figcaption>ShadowSecurity.png. A green burst on black, with the name stretched white across the middle.</figcaption>
-      </figure>
-      <figure class="g-third">
-        <img src="https://raw.githubusercontent.com/Epsilon0xCell/ShadowSecurity-Tribute/main/ShadowSecurity-Circle.png" alt="Circular version of the green burst art">
-        <figcaption>ShadowSecurity-Circle.png. The same green burst, cut as a circle. My README sets it under the Tribute heading.</figcaption>
-      </figure>
-      <figure class="g-third">
-        <img src="https://raw.githubusercontent.com/Epsilon0xCell/ShadowSecurity-Tribute/main/ShadowSecurity-Matrix.gif" alt="Animated ShadowSecurity matrix art from this repo">
-        <figcaption>ShadowSecurity-Matrix.gif, animated art kept in the repo root.</figcaption>
-      </figure>
-      <figure class="g-third">
-        <img src="https://raw.githubusercontent.com/Epsilon0xCell/ShadowSecurity-Tribute/main/kidswhohacklogo.png" alt="KidsWhoHack logo, purple script on a black circle">
-        <figcaption>kidswhohacklogo.png. Purple script reading Kids who hack, on a black circle over falling code.</figcaption>
-      </figure>
-      <figure class="g-half">
-        <img src="https://raw.githubusercontent.com/Epsilon0xCell/ShadowSecurity-Tribute/main/Shadow-Web-PWA-Icon-Image.jpeg" alt="Two app icons labelled Shadow-Music and Shadow">
-        <figcaption>Shadow-Web-PWA-Icon-Image.jpeg. Two app icons side by side, labelled Shadow-Music and Shadow. This is the PWA art my README mentions when it says videos of Shadow-Music and the Shadow-Website PWA would be provided as a release.</figcaption>
-      </figure>
-    </div>
-  </section>
-
-  <section class="reveal">
-    <h2>The drawn sheets</h2>
-    <div class="rule"></div>
-    <p>Six hand drawn sheets live in <code>ShadowSecurity-Tribute-Visuals/</code>, drawn from the files as they sat on 2026-10-30. <code>VISUAL.md</code> in that folder describes five of them and leaves the sixth, the schematic, out of its list. I show all six and say so, rather than repeat the five sheet count.</p>
-    <div class="plates">
-      <figure>
-        <img class="p-a" src="https://raw.githubusercontent.com/Epsilon0xCell/ShadowSecurity-Tribute/main/ShadowSecurity-Tribute-Visuals/architecture.png" alt="Hand drawn architecture sheet for this repo">
-        <figcaption>architecture.png. Titled how it is put together: README.md at 66 lines on top, with Shadow-Linux.sh, Shadow-Mac.sh, and ShadowSecurityBackground.png under it.</figcaption>
-      </figure>
-      <figure>
-        <img class="p-b" src="https://raw.githubusercontent.com/Epsilon0xCell/ShadowSecurity-Tribute/main/ShadowSecurity-Tribute-Visuals/flowchart.png" alt="Hand drawn flowchart sheet for this repo">
-        <figcaption>flowchart.png. The run, step by step: start at README.md, read the files in order, and stop clean or say why not.</figcaption>
-      </figure>
-      <figure>
-        <img class="p-c" src="https://raw.githubusercontent.com/Epsilon0xCell/ShadowSecurity-Tribute/main/ShadowSecurity-Tribute-Visuals/product-map.png" alt="Hand drawn product map sheet for this repo">
-        <figcaption>product-map.png. What the tribute is for, what goes in, what comes out, and where it stops: no service behind it, no account, no upload.</figcaption>
-      </figure>
-      <figure>
-        <img class="p-b" src="https://raw.githubusercontent.com/Epsilon0xCell/ShadowSecurity-Tribute/main/ShadowSecurity-Tribute-Visuals/data-flow.png" alt="Hand drawn data flow sheet for this repo">
-        <figcaption>data-flow.png. The data path in one direction: files on disk, README.md, the main pass, result out.</figcaption>
-      </figure>
-      <figure>
-        <img class="p-a" src="https://raw.githubusercontent.com/Epsilon0xCell/ShadowSecurity-Tribute/main/ShadowSecurity-Tribute-Visuals/statistics.png" alt="Hand drawn statistics sheet for this repo">
-        <figcaption>statistics.png. The count from the 2026-10-30 snapshot: Markdown 66 lines, Shell 19 lines, 10 files, 22 commits from 2023-05-08, and no test files.</figcaption>
-      </figure>
-      <figure>
-        <img class="p-c" src="https://raw.githubusercontent.com/Epsilon0xCell/ShadowSecurity-Tribute/main/ShadowSecurity-Tribute-Visuals/schematic.png" alt="Hand drawn schematic sheet for this repo">
-        <figcaption>schematic.png. The repo drawn as an apparatus: README.md at 66 lines, Shadow-Linux.sh at 10 lines, Shadow-Mac.sh at 9 lines, on a base plate that is the repo itself. This is the sixth sheet, the one VISUAL.md does not list.</figcaption>
-      </figure>
-    </div>
-  </section>
-
-  <section class="reveal">
-    <h2>Reading this repo</h2>
-    <div class="rule"></div>
-    <p>There is no install command here, and I will not write one for scripts that do not exist. Reading is the use: start with <code>README.md</code>, all 66 lines of it, then the two placeholder headers above. They take a minute, and they are the whole repo apart from the art and the drawn sheets.</p>
-    <p><a href="https://github.com/Epsilon0xCell/ShadowSecurity-Tribute">Read ShadowSecurity-Tribute on GitHub</a> &middot; <a href="https://github.com/Epsilon0xCell">Epsilon0xCell on GitHub</a></p>
-  </section>
-
-  <footer>
-    <span>Built by Epsilon0xCell</span>
-    <span>Kept as a record, not rebuilt as a claim.</span>
-  </footer>
+<header class="hero">
+<img class="cup" src="assets/intro-banner.png" alt="The open meter cupboard under the stairs, torch lit, dials turning by fractions">
+<div class="strip"><img src="assets/logo.png" alt="A round meter face with an amber needle"><div><h1>ShadowSecurity-Tribute</h1><p>ShadowSecurity was founded by the author, ran for about a year, and closed. This repository is its memorial, built to keep its founding idea alive rather than to launch anything new. The board below reads the way the cupboard is checked: row by row, in the dark, by torchlight. <span class="needle" aria-hidden="true"><i></i></span></p><p><a class="btn" href="https://github.com/Epsilon0xCell/ShadowSecurity-Tribute">Open the repo</a> <a class="btn" href="#learned">What was learned</a></p></div></div>
+</header>
+<main class="board">
+<section class="row"><span class="screw l"></span><span class="screw r"></span><span class="dial"></span><span class="room">First row, the flagship</span><h2>Shadow-Linux</h2><p>The founding idea, and the one thing kept. The plan is a single script that brings the author favourite penetration testing distributions together inside one Bedrock Linux based system, in the README words, essentially one giant regex script that installs them into one operating system, with no branding of its own.</p><div class="note"><p>Note taped inside the door: <code>Shadow-Linux.sh</code> in the repository is an honest placeholder today, a header saying the script is not written yet. The site says that plainly instead of dressing an empty file as a finished installer. <code>Shadow-Mac.sh</code> is a placeholder the same way.</p></div></section>
+<section class="row"><span class="screw l"></span><span class="screw r"></span><span class="dial"></span><span class="room">Second row, the smaller projects</span><h2>Each project, and its true ending</h2><p><strong>Shadow-Live</strong>, a customised rescue distribution, set aside because it changed too little from RescueZilla, the distribution it forked.</p><p><strong>Shadow-Windows</strong> and <strong>Shadow-Mac</strong>, both stopped over copyright worries. Shadow-Mac may return one day as a setup script rather than a system: a Mac set up with penetration testing tools and a configured out of box experience.</p><p><strong>Shadow-Website</strong>, whose code is lost, with screenshots and video of the progressive web app surviving.</p><p><strong>Shadow-Music</strong>, a SomaFM player fork, code also lost, video surviving.</p><p>Then the community names closed for lack of time: Shadow-Game, Shadow-Blog, Shadow-News, Shadow-Community, and Shadow-Storage.</p></section>
+<section class="row"><span class="screw l"></span><span class="screw r"></span><span class="dial"></span><span class="room">Third row, the second memorial</span><h2>KidsWhoHack</h2><p>An organisation the author founded for teaching cybersecurity to children. After creating a course, he found text based content just as effective, and shifted to presentations, blogs, and text based lessons, which were easier to manage and reached more people. The organisation closed; its legacy lives on in the text based content he still creates.</p></section>
+<section class="row"><span class="screw l"></span><span class="screw r"></span><span class="dial"></span><span class="room">Fourth row, the archive attempt</span><h2>The door that deletion closed</h2><p>The author tried to restore the original organisation code. The attempt is told straight in the README, with its links kept: <a href="https://docs.github.com/en/repositories/creating-and-managing-repositories/restoring-a-deleted-repository"><span class="pin"></span>GitHub on restoring a deleted repository</a>, <a href="https://stackoverflow.com/questions/66568042/how-do-i-restore-a-deleted-organisation-on-github"><span class="pin"></span>Stack Overflow on restoring a deleted organisation</a>, and <a href="https://github.blog/changelog/2019-09-30-restore-deleted-repositories/"><span class="pin"></span>the GitHub changelog note on restoring deleted repositories</a>. Because the whole organisation was deleted, the restore menu could not be reached, and that closed the door.</p><div class="note"><p>Note taped inside the door: the original organisation code could not be restored after deletion.</p></div></section>
+<section class="row" id="learned"><span class="screw l"></span><span class="screw r"></span><span class="dial"></span><span class="room">Final row</span><h2>What the author says he learned</h2><p>Ambition spread across too many projects is what ended them. He let his ambition get the better of him across many organisations, and learned that focusing on one core product is the key: one core product kept is worth more than a dozen started. The projects live on in other forms, and the needle still creeps, because the one script the organisation was founded for is still, deliberately, waiting to be written.</p></section>
 </main>
-<script>
-  // I add the js class first so the hidden state only exists when this script can also undo it. With script off, every section is simply on the page.
-  document.documentElement.classList.add('js');
-  // Sections settle in as a reader reaches them, once each, in the order the wall is read. Nothing loops behind the text.
-  var watcher = new IntersectionObserver(function (entries) {
-    entries.forEach(function (entry) {
-      if (entry.isIntersecting) { entry.target.classList.add('seen'); watcher.unobserve(entry.target); }
-    });
-  }, { threshold: 0.12 });
-  document.querySelectorAll('.reveal').forEach(function (el) { watcher.observe(el); });
-</script>
+<footer><p>ShadowSecurity-Tribute: a memorial board under the stairs. The torch goes back on its nail; the meter keeps counting.</p></footer>
 </body>
 </html>

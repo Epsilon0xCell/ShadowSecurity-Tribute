@@ -30,7 +30,7 @@ Some of the projects we worked on included Shadow-Live, which aimed to create a 
 
 We also had projects such as Shadow-Windows, which was shut down due to potential copyright issues that would arise from creating a project such as this, and Shadow-Mac, which was also shut down for the same reason but may be reopened in the future as a script and not a custom OS.
 
-Other community projects included Shadow-Website, an amazing website that I still have screenshots and videos of the PWA in action, but unfortunately lost the code. Shadow-Music was also a community project that utilized somafm and was a fork of someone's somafm online player. I still have videos of Shadow-Music in action, but the code was lost upon shutting down the organization.
+Other community projects included Shadow-Website, a website that I still have screenshots and videos of the PWA in action, but unfortunately lost the code. Shadow-Music was also a community project that utilized somafm and was a fork of someone's somafm online player. I still have videos of Shadow-Music in action, but the code was lost upon shutting down the organization.
 
 Finally, I realized that I had tried to reinvent the wheel and do too much when the main focus of the organization should have been my script Shadow-Linux. It was the flagship product that combined all pentesting linux distributions into one by forking Bedrock Linux. As a result, the only thing I kept from this organization was Shadow-Linux. All other community projects such as Shadow-Game, Shadow-Blog, Shadow-News, Shadow-Community, and Shadow-Storage shutdown due to lack of time.
 

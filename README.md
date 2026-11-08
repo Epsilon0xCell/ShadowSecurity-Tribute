@@ -1,9 +1,11 @@
-![Intro scenery](intro-banner.png)
+![Intro: a closer moment at the wall as a mason hand and trowel settle the great stone into its mortar bed, the finished courses standing above it and the rope still around the stone](intro-banner.png)
 
 
 # ShadowSecurity-Tribute
 
-![Wordmark banner](banner.png)
+<p align="center"><img src="logo.png" alt="ShadowSecurity-Tribute logo: a single rough dressed grey foundation stone standing in dawn light, gold raking across its blank face, a sprig of ivy growing at its base" width="200"></p>
+
+![Banner: a building site at dawn where masons lower a great grey foundation stone on ropes toward its mortar bed, the first wall already rising to the right and older ruined stones standing to one side](banner.png)
 
 ![Animated scene](scene.svg)
 
